@@ -1,5 +1,7 @@
 # Company is a class that represents a company with users
 class Company
+  @users: Array[User]
+
   attr_reader id: Integer
 
   attr_reader name: String
