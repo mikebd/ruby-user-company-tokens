@@ -1,0 +1,3 @@
+class CompanyTest
+  @company_one: Company
+end

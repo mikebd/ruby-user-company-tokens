@@ -22,8 +22,28 @@ class Company
   end
   # rubocop:enable Layout/LineLength, Metrics/CyclomaticComplexity
 
+  def add_user(user)
+    unless user.is_a?(User)
+      raise ArgumentError, "Company.add_user() requires a User object, \
+received #{user.class}"
+    end
+
+    @users.each do |u|
+      if u.id == user.id
+        raise ArgumentError, "Company.add_user() received a User object \
+with duplicate id #{user.id}"
+      end
+    end
+
+    @users << user
+  end
+
   def to_s
     "id: #{@id}, name: #{@name}, top_up: #{@top_up}, \
 email_status: #{@email_status}, # users: #{@users.size}"
+  end
+
+  def user_count
+    @users.size
   end
 end

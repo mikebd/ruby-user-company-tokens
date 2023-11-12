@@ -12,5 +12,9 @@ class Company
 
   def initialize: (id: Integer, name: String, top_up: Integer, email_status: bool) -> void
 
+  def add_user: (user: User) -> untyped
+
   def to_s: () -> ::String
+
+  def user_count: -> Integer
 end

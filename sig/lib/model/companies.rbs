@@ -6,5 +6,5 @@ class Companies
 
   def add: (Company company) -> untyped
 
-  def size: () -> Integer
+  def company_count: () -> Integer
 end
