@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 require 'minitest/autorun'
-require_relative 'JSONParser'
+require_relative 'json_parser'
 
+# TestJSONParser is a class that tests JSONParser
 class TestJSONParser < Minitest::Test
   def test_parse_valid_json
     json_string = '{"name": "Alice", "age": 30}'
