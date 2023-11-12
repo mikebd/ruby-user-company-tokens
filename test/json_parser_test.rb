@@ -8,6 +8,7 @@ class JsonParserTest < Minitest::Test
   def test_parse_valid_json
     json_string = '{"name": "Alice", "age": 30}'
     parsed_data = JSONParser.parse(json_string)
+
     assert_equal({ name: 'Alice', age: 30 }, parsed_data)
   end
 

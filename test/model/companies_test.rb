@@ -25,6 +25,7 @@ class CompaniesTest < Minitest::Test
     company = Company.new(id: 1, name: 'Company', top_up: 100,
                           email_status: true)
     companies.add(company)
+
     assert_equal(1, companies.size)
   end
 end

@@ -1,3 +1,6 @@
+require:
+  - rubocop-minitest
+
 AllCops:
   TargetRubyVersion: 3.2
   NewCops: enable
@@ -5,8 +8,11 @@ AllCops:
 Layout/LineLength:
   Max: 80
 
+Layout/TrailingWhitespace:
+  Enabled: true
+
 Metrics/MethodLength:
   Max: 20
 
-Layout/TrailingWhitespace:
-  Enabled: true
+Minitest/MultipleAssertions:
+  Max: 10
