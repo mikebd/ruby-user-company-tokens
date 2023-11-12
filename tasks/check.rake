@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# check task
+desc 'Run all quality checks'
 task :check do
   Rake::Task[:rubocop].invoke
   # TODO: figure out why steep is failing
