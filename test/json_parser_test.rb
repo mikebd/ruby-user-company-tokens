@@ -3,8 +3,8 @@
 require 'minitest/autorun'
 require_relative '../lib/json_parser'
 
-# TestJSONParser is a class that tests JSONParser
-class TestJSONParser < Minitest::Test
+# JsonParserTest is a class that tests JSONParser
+class JsonParserTest < Minitest::Test
   def test_parse_valid_json
     json_string = '{"name": "Alice", "age": 30}'
     parsed_data = JSONParser.parse(json_string)
