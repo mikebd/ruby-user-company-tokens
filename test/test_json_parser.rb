@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'minitest/autorun'
-require_relative 'json_parser'
+require_relative '../lib/json_parser'
 
 # TestJSONParser is a class that tests JSONParser
 class TestJSONParser < Minitest::Test
