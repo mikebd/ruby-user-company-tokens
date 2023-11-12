@@ -1,0 +1,10 @@
+# Companies is a class that manages a set of Company objects
+class Companies
+  @companies: Array[Company]
+
+  def initialize: () -> void
+
+  def add: (Company company) -> untyped
+
+  def size: () -> Integer
+end

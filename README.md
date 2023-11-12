@@ -73,3 +73,10 @@ This is not intended to be run by other developers
   * `gem install rubocop`
   * `gem update --system 3.4.22` # as suggested after the previous command
   * `rubocop`
+
+## Notes to Reviewers
+
+* I've never used RBS, Sorbet or Steep previously but took a stab at introducing
+  RBS to this project with Steep.  `bundle exec steep check` fails, for a
+  production code base, I would like to revisit this. I chose Steep as it is
+  [supported by my IDE](https://www.jetbrains.com/help/ruby/rbs.html#steep_type_checking).

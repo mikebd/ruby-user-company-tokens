@@ -1,0 +1,14 @@
+# Company is a class that represents a company with users
+class Company
+  attr_reader id: Integer
+
+  attr_reader name: String
+
+  attr_reader top_up: Integer
+
+  attr_reader email_status: bool
+
+  def initialize: (id: Integer, name: String, top_up: Integer, email_status: bool) -> void
+
+  def to_s: () -> ::String
+end
