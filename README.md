@@ -10,6 +10,8 @@ production repository.
 
 * [Bootstrap of this repository](#bootstrap-of-this-repository)
 * [Development Environment](#development-environment)
+  * [Local Development](#local-development)
+  * [Initial Testing of the Bootstrap](#initial-testing-of-the-bootstrap)
 
 ## Bootstrap of this repository
 
@@ -48,7 +50,13 @@ with
 the [GitHub Copilot](https://plugins.jetbrains.com/plugin/17718-github-copilot)
 plugin installed.
 
+### Local Development
+
+* `rake check` # Runs rubocop and minitest
+
 ### Initial Testing of the Bootstrap
+
+This is not intended to be run by other developers
 
 * Run the Docker container from the IDE, observe tests pass using Ruby 3.2.
 * Run the tests from the IDE, observe tests pass using Ruby 2.7.
@@ -59,7 +67,7 @@ plugin installed.
 * Configure the Run Configuration in the IDE to use Ruby 3.2.2 provided by asdf
 * Run the tests from the IDE, observe tests pass using Ruby 3.2.2.
 * Command line (in the project directory):
-  * `asdf local ruby latest:3.2`
+  * `asdf local ruby 3.2.2`
   * `asdf reshim ruby`
   * `ruby -v`
   * `gem install rubocop`
