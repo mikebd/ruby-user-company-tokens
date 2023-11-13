@@ -1,0 +1,7 @@
+class CompaniesController
+  def self.load_json: (companies_filename: String, users_filename: String) -> Companies
+
+  def self.load_companies_json: (companies: Companies, filename: String) -> untyped
+
+  def self.load_users_json: (companies: Companies, filename: String) -> untyped
+end
