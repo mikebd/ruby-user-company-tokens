@@ -15,11 +15,9 @@ class Companies
 received #{company.class}"
     end
 
-    @companies.each do |c|
-      if c.id == company.id
-        raise ArgumentError, "Companies.add() received a Company object \
+    if @companies.any? { |c| c.id == company.id }
+      raise ArgumentError, "Companies.add() received a Company object \
 with duplicate id #{company.id}"
-      end
     end
 
     if block_given?

@@ -28,11 +28,9 @@ class Company
 received #{user.class}"
     end
 
-    @users.each do |u|
-      if u.id == user.id
-        raise ArgumentError, "Company.add_user() received a User object \
+    if @users.any? { |u| u.id == user.id }
+      raise ArgumentError, "Company.add_user() received a User object \
 with duplicate id #{user.id}"
-      end
     end
 
     @users << user
