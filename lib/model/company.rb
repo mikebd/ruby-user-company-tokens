@@ -23,7 +23,11 @@ class Company
   end
   # rubocop:enable Layout/LineLength, Metrics/CyclomaticComplexity
 
-  def add_user(user)
+  # Add a user to the company.
+  # If a block is passed to this method, use it to insert the user in sorted
+  # order, otherwise, append the user to the end of the array.
+  # e.g.: add_user(user) { |u| u.last_name >= user.last_name }
+  def add_user(user, &)
     unless user.is_a?(User)
       raise ArgumentError, "Company.add_user() requires a User object, \
 received #{user.class}"
@@ -40,7 +44,15 @@ with duplicate id #{user.id}"
               @users_not_to_email
             end
 
-    users << user
+    if block_given?
+      users.insert(users.index(&) || -1, user)
+    else
+      users << user
+    end
+  end
+
+  def add_user_sorted_by_last_name(user)
+    add_user(user) { |u| u.last_name >= user.last_name }
   end
 
   def is_duplicate_user?(user)

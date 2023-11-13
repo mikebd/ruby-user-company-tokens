@@ -6,9 +6,10 @@ class Companies
     @companies = []
   end
 
-  # add a company to the set of companies
-  # if a block is passed to this method, use it to insert the company in sorted
-  # order, otherwise, append the company to the end of the array
+  # Add a company to the set of companies.
+  # If a block is passed to this method, use it to insert the company in sorted
+  # order, otherwise, append the company to the end of the array.
+  # e.g.: add(company) { |c| c.id >= company.id }
   def add(company, &)
     unless company.is_a?(Company)
       raise ArgumentError, "Companies.add() requires a Company object, \
