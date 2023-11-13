@@ -4,6 +4,14 @@ require_relative 'user'
 
 # Company is a class that represents a company with users
 class Company
+  # Potential bug in the take home assignment:
+  #   - Jim Jimerson and Ned Nederson have the same id (33), for company id 3
+  #   - The assignment does not specify whether or not duplicate users are
+  #     allowed but hints at the possibility of bad data (e.g. duplicate users)
+  #   - example_output.txt shows that duplicate users are allowed so I am not
+  #     preventing duplicate users by default
+  PREVENT_DUPLICATE_USERS = false
+
   attr_reader :id, :name, :top_up, :email_status
 
   # rubocop:disable Layout/LineLength, Metrics/CyclomaticComplexity
@@ -35,7 +43,7 @@ class Company
 received #{user.class}"
     end
 
-    if duplicate_user?(user)
+    if PREVENT_DUPLICATE_USERS && duplicate_user?(user)
       raise ArgumentError, "Company.add_user() received a User object \
 with duplicate id #{user.id}"
     end

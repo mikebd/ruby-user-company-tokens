@@ -38,8 +38,10 @@ class CompanyTest < Minitest::Test
 
     assert_equal(1, @company1.user_count)
 
-    assert_raises(ArgumentError) { @company1.add_user(@user1) }
-    assert_equal(1, @company1.user_count)
+    if Company::PREVENT_DUPLICATE_USERS
+      assert_raises(ArgumentError) { @company1.add_user(@user1) }
+      assert_equal(1, @company1.user_count)
+    end
 
     @company1.add_user(@user2)
 

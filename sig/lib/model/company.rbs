@@ -1,5 +1,7 @@
 # Company is a class that represents a company with users
 class Company
+  PREVENT_DUPLICATE_USERS: bool
+
   @users_to_email: Array[User]
 
   @users_not_to_email: Array[User]
