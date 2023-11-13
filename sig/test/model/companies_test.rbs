@@ -1,0 +1,7 @@
+class CompaniesTest
+  @companies: Companies
+  @company1: Company
+  @company2: Company
+  @company3: Company
+  @company4: Company
+end

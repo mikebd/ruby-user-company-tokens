@@ -24,5 +24,4 @@ class CompaniesController
 
     # TODO: Add users to companies
   end
-
 end
