@@ -18,7 +18,8 @@ class Company
     @top_up = top_up
     @email_status = email_status
 
-    @users = []
+    @users_to_email = []
+    @users_not_to_email = []
   end
   # rubocop:enable Layout/LineLength, Metrics/CyclomaticComplexity
 
@@ -28,20 +29,32 @@ class Company
 received #{user.class}"
     end
 
-    if @users.any? { |u| u.id == user.id }
+    if is_duplicate_user?(user)
       raise ArgumentError, "Company.add_user() received a User object \
 with duplicate id #{user.id}"
     end
 
-    @users << user
+    users = if @email_status && user.email_status
+              @users_to_email
+            else
+              @users_not_to_email
+            end
+
+    users << user
+  end
+
+  def is_duplicate_user?(user)
+    @users_to_email.any? { |u| u.id == user.id } ||
+      @users_not_to_email.any? { |u| u.id == user.id }
   end
 
   def to_s
     "id: #{@id}, name: #{@name}, top_up: #{@top_up}, \
-email_status: #{@email_status}, # users: #{@users.size}"
+email_status: #{@email_status}, users to email: #{@users_to_email.size}, \
+users not to email: #{@users_not_to_email.size}"
   end
 
   def user_count
-    @users.size
+    @users_to_email.size + @users_not_to_email.size
   end
 end

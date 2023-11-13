@@ -1,6 +1,8 @@
 # Company is a class that represents a company with users
 class Company
-  @users: Array[User]
+  @users_to_email: Array[User]
+
+  @users_not_to_email: Array[User]
 
   attr_reader id: Integer
 
@@ -13,6 +15,8 @@ class Company
   def initialize: (id: Integer, name: String, top_up: Integer, email_status: bool) -> void
 
   def add_user: (user: User) -> untyped
+
+  def is_duplicate_user?: (user: User) -> bool
 
   def to_s: () -> ::String
 

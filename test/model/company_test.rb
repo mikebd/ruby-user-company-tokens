@@ -41,7 +41,7 @@ class CompanyTest < Minitest::Test
 
   def test_to_s
     assert_equal("id: 1, name: Company One, top_up: 100, email_status: true, \
-# users: 0",
+users to email: 0, users not to email: 0",
                  @company1.to_s)
   end
 end
