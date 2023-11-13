@@ -58,6 +58,10 @@ with duplicate id #{user.id}"
       @users_not_to_email.any? { |u| u.id == user.id }
   end
 
+  def empty?
+    user_count.zero?
+  end
+
   def to_s
     "id: #{@id}, name: #{@name}, top_up: #{@top_up}, \
 email_status: #{@email_status}, users to email: #{@users_to_email.size}, \

@@ -26,7 +26,7 @@ class CompaniesController
     begin
       File.open(output_filename, 'w') do |file|
         companies.each do |company|
-          file.puts company.to_s
+          file.puts company.to_s unless company.empty?
         end
       end
     rescue => e

@@ -20,6 +20,8 @@ class Company
 
   def duplicate_user?: (user: User) -> bool
 
+  def empty?: -> bool
+
   def to_s: () -> ::String
 
   def user_count: -> Integer
