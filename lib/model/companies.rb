@@ -1,7 +1,15 @@
 # frozen_string_literal: true
 
+require 'forwardable'
+
+require_relative 'company'
+
 # Companies is a class that manages a set of Company objects
 class Companies
+  extend Forwardable
+
+  def_delegators :@companies, :each, :empty?
+
   def initialize
     @companies = []
   end

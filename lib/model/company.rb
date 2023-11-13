@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'user'
+
 # Company is a class that represents a company with users
 class Company
   attr_reader :id, :name, :top_up, :email_status

@@ -2,6 +2,8 @@
 
 require 'json'
 
+require_relative '../model/companies'
+
 # CompaniesController is a stateless class that manages a set of Company objects
 class CompaniesController
   def self.load_json(companies_filename, users_filename)
@@ -16,6 +18,20 @@ class CompaniesController
     end
 
     companies
+  end
+
+  def self.write_top_ups(companies, output_filename)
+    return if companies.nil? || companies.empty?
+
+    begin
+      File.open(output_filename, 'w') do |file|
+        companies.each do |company|
+          file.puts company.to_s
+        end
+      end
+    rescue => e
+      warn "Error writing to file #{output_filename}: #{e}"
+    end
   end
 
   private_class_method def self.load_companies_json(companies, filename)

@@ -60,3 +60,6 @@ build-iPhoneSimulator/
 *.iml
 *.iws
 *.ipr
+
+# Output of this program
+output.txt

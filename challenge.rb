@@ -12,9 +12,4 @@ companies = CompaniesController.load_json(
   USERS_JSON_FILE
 )
 
-# output the companies to the output file
-# File.open(OUTPUT_FILE, 'w') do |file|
-#  companies.each do |company|
-#    file.puts company.to_s
-#  end
-# end
+CompaniesController.write_top_ups(companies, OUTPUT_FILE)

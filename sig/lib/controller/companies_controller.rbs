@@ -6,4 +6,6 @@ class CompaniesController
   def self.load_companies_json: (companies: Companies, filename: String) -> untyped
 
   def self.load_users_json: (companies: Companies, filename: String) -> untyped
+
+  def self.write_top_ups: (companies: Companies, filename: String) -> untyped
 end
