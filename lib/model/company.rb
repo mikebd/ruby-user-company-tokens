@@ -12,7 +12,8 @@ class Company
   #     preventing duplicate users by default
   PREVENT_DUPLICATE_USERS = false
 
-  attr_reader :id, :name, :top_up, :email_status
+  attr_reader :id, :name, :top_up, :email_status,
+              :users_to_email, :users_not_to_email
 
   # rubocop:disable Layout/LineLength, Metrics/CyclomaticComplexity
   def initialize(id:, name:, top_up:, email_status:)

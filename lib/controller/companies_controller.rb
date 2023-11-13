@@ -3,6 +3,7 @@
 require 'json'
 
 require_relative '../model/companies'
+require_relative '../view/company_view'
 
 # CompaniesController is a stateless class that manages a set of Company objects
 class CompaniesController
@@ -26,7 +27,10 @@ class CompaniesController
     begin
       File.open(output_filename, 'w') do |file|
         companies.each do |company|
-          file.puts company.to_s unless company.empty?
+          next if company.empty?
+
+          file.puts
+          file.puts CompanyView.render_top_ups(company)
         end
       end
     rescue => e

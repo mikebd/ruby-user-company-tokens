@@ -1,0 +1,5 @@
+class CompanyView
+  def self.add_users_top_ups: (output: StringIO, top_up: Integer, users: Array[User]) -> Integer
+
+  def self.render_top_ups: (company: Company) -> String
+end
