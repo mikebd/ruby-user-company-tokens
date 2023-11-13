@@ -18,9 +18,11 @@ class Company
 
   def add_user_sorted_by_last_name: (user: User) -> untyped
 
-  def is_duplicate_user?: (user: User) -> bool
+  def duplicate_user?: (user: User) -> bool
 
   def to_s: () -> ::String
 
   def user_count: -> Integer
+
+  def users: (user: User) -> Array[User]
 end

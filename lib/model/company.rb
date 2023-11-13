@@ -33,16 +33,12 @@ class Company
 received #{user.class}"
     end
 
-    if is_duplicate_user?(user)
+    if duplicate_user?(user)
       raise ArgumentError, "Company.add_user() received a User object \
 with duplicate id #{user.id}"
     end
 
-    users = if @email_status && user.email_status
-              @users_to_email
-            else
-              @users_not_to_email
-            end
+    users = users(user) # Determine which array to add the user to
 
     if block_given?
       users.insert(users.index(&) || -1, user)
@@ -55,7 +51,7 @@ with duplicate id #{user.id}"
     add_user(user) { |u| u.last_name >= user.last_name }
   end
 
-  def is_duplicate_user?(user)
+  def duplicate_user?(user)
     @users_to_email.any? { |u| u.id == user.id } ||
       @users_not_to_email.any? { |u| u.id == user.id }
   end
@@ -68,5 +64,11 @@ users not to email: #{@users_not_to_email.size}"
 
   def user_count
     @users_to_email.size + @users_not_to_email.size
+  end
+
+  # Returns @users_to_email or @users_not_to_email depending on the email_status
+  # of the company and the given user.
+  def users(user)
+    @email_status && user.email_status ? @users_to_email : @users_not_to_email
   end
 end
