@@ -32,6 +32,10 @@ with duplicate id #{company.id}"
     add(company) { |c| c.id >= company.id }
   end
 
+  def company(id)
+    @companies.bsearch { |c| c.id >= id }
+  end
+
   def company_count
     @companies.size
   end

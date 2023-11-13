@@ -1,4 +1,6 @@
 class CompaniesController
+  def self.add_user_to_company: (company: Company, json_user: Hash[Symbol, untyped]) -> untyped
+
   def self.load_json: (companies_filename: String, users_filename: String) -> Companies
 
   def self.load_companies_json: (companies: Companies, filename: String) -> untyped

@@ -20,3 +20,6 @@ Metrics/MethodLength:
 
 Minitest/MultipleAssertions:
   Max: 10
+
+Style/RescueStandardError:
+  Enabled: false

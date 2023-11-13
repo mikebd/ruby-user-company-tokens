@@ -8,5 +8,7 @@ class Companies
 
   def add_sorted_by_id: (Company company) -> untyped
 
+  def company: (Integer id) -> Company?
+
   def company_count: () -> Integer
 end
