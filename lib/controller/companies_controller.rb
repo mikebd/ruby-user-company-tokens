@@ -20,9 +20,18 @@ class CompaniesController
 
   private_class_method def self.load_companies_json(companies, filename)
     file = File.read(filename)
-    JSON.parse(file)
-
-    # TODO: Add companies
+    JSON.parse(file, symbolize_names: true).map do |json_company|
+      companies.add(
+        Company.new(
+          id: json_company[:id],
+          name: json_company[:name],
+          top_up: json_company[:top_up],
+          email_status: json_company[:email_status]
+        )
+      )
+    rescue => e
+      warn "Skipping user #{json_company[:id]} due to error: #{e}"
+    end
   end
 
   private_class_method def self.load_users_json(companies, filename)
