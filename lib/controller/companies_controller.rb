@@ -41,7 +41,7 @@ class CompaniesController
   private_class_method def self.load_companies_json(companies, filename)
     file = File.read(filename)
     JSON.parse(file, symbolize_names: true).map do |json_company|
-      companies.add(
+      companies.add_sorted_by_id(
         Company.new(
           id: json_company[:id],
           name: json_company[:name],
@@ -81,7 +81,7 @@ class CompaniesController
       warn "Skipping user #{json_user[:id]} with unrecognized \
 company id #{json_user[:company_id]}"
     else
-      company.add_user(
+      company.add_user_sorted_by_name(
         User.new(
           id: json_user[:id],
           first_name: json_user[:first_name],

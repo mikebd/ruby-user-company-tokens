@@ -18,7 +18,7 @@ class Company
 
   def add_user: (user: User) -> untyped
 
-  def add_user_sorted_by_last_name: (user: User) -> untyped
+  def add_user_sorted_by_name: (user: User) -> untyped
 
   def duplicate_user?: (user: User) -> bool
 

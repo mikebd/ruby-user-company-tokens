@@ -58,8 +58,14 @@ with duplicate id #{user.id}"
     end
   end
 
-  def add_user_sorted_by_last_name(user)
-    add_user(user) { |u| u.last_name >= user.last_name }
+  def add_user_sorted_by_name(user)
+    add_user(user) do |u|
+      if u.last_name == user.last_name
+        u.first_name >= user.first_name
+      else
+        u.last_name >= user.last_name
+      end
+    end
   end
 
   def duplicate_user?(user)

@@ -49,10 +49,10 @@ class CompanyTest < Minitest::Test
   end
 
   def test_add_user_sorted_by_last_name
-    @company1.add_user_sorted_by_last_name(@user3)
-    @company1.add_user_sorted_by_last_name(@user4)
-    @company1.add_user_sorted_by_last_name(@user1)
-    @company1.add_user_sorted_by_last_name(@user2)
+    @company1.add_user_sorted_by_name(@user3)
+    @company1.add_user_sorted_by_name(@user4)
+    @company1.add_user_sorted_by_name(@user1)
+    @company1.add_user_sorted_by_name(@user2)
 
     assert_equal(4, @company1.user_count)
     assert_equal(@user1, @company1.instance_variable_get(:@users_to_email)[0])
