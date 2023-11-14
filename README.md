@@ -52,7 +52,48 @@ plugin installed.
 
 ### Local Development
 
-* `rake check` # Runs rubocop and minitest
+* `rake check` # Runs rubocop and minitest<br/>
+  ```
+  ❯ rake check
+  Running RuboCop...
+  Inspecting 16 files
+  ................
+
+  16 files inspected, no offenses detected
+  Run options: --seed 52768
+
+  # Running:
+
+  ........
+
+  Finished in 0.001314s, 6088.2800 runs/s, 19025.8751 assertions/s.
+
+  8 runs, 25 assertions, 0 failures, 0 errors, 0 skips
+  ```
+
+* Final manual end to end testing was done with:<br/>
+  ```
+  ruby challenge.rb && bcomp output.txt example_output.txt
+  ```
+  Where `bcomp` is provided
+  by [Beyond Compare](https://www.scootersoftware.com/home).
+  `diff` can be used instead.
+
+#### All Rake Tasks
+
+```
+❯ rake --tasks
+rake check                    # Run all quality checks
+rake default                  # Run the default task(s)
+rake rubocop                  # Run RuboCop
+rake rubocop:autocorrect      # Autocorrect RuboCop offenses (only when it's safe)
+rake rubocop:autocorrect_all  # Autocorrect RuboCop offenses (safe and unsafe)
+rake test                     # Run the test suite
+rake test:cmd                 # Print out the test command
+rake test:isolated            # Show which test files fail when run in isolation
+rake test:slow                # Show bottom 25 tests wrt time
+rake typecheck                # Type check the code
+```
 
 ### Initial Testing of the Bootstrap
 
@@ -79,3 +120,8 @@ This is not intended to be run by other developers
   RBS to this project with Steep.  `bundle exec steep check` fails, for a
   production code base, I would like to revisit this. I chose Steep as it is
   [supported by my IDE](https://www.jetbrains.com/help/ruby/rbs.html#steep_type_checking).
+* The instructions said to sort users by last name, but testing showed that
+  first name was required as a tie breaker to match the example output.
+* I expected to want to discard duplicate users (by Id) during loading but
+  testing showed that matching the example output required retaining them.
+  `Company::PRESERVE_DUPLICATE_USERS` was added to allow toggling this behavior.
