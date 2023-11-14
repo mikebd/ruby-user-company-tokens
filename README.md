@@ -58,7 +58,6 @@ plugin installed.
 
 This is not intended to be run by other developers
 
-* Run the Docker container from the IDE, observe tests pass using Ruby 3.2.
 * Run the tests from the IDE, observe tests pass using Ruby 2.7.
 * Command line:
   * `asdf list all ruby 3.2`
